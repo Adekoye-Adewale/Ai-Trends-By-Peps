@@ -1,8 +1,13 @@
+import LandingPageHero from "@/components/heros/landingPageHero";
+import AboutSection from "@/components/landingPage/aboutSection";
+import Programs from "@/components/landingPage/programs";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      
+    <main className="overflow-x-hidden ">
+      <LandingPageHero/>
+      <AboutSection/>
+      <Programs/>
     </main>
   );
 }

@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+*, 
+*::after, 
+*::before{
+        box-sizing: border-box;
+        min-width: 0;
+}

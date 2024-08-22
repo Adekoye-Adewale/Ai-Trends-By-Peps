@@ -1,10 +1,10 @@
 'use client'
 import React, { useState } from 'react'
 import Logo from './logo'
-import { menuLinks } from '../headerNavCopy'
 import Link from 'next/link'
 import PriBtn from '../button/priBtn'
 import MobileNav from './mobileNav'
+import { menuLinks } from '../../contentCopy/headerNavCopy'
 
 export default function NavBar() {
 
@@ -16,9 +16,9 @@ export default function NavBar() {
 
         return (
                 <>
-                        <header className='fixed top-5 left-2/4 translate-x-[-50%] flex justify-between items-center gap-5 p-5 max-w-[1440px] w-[96%] mx-auto bg-LightColor-100 rounded-lg border border-solid border-LightColor-300 '>
-                                <Logo/>
-                                <DesktopNav/>
+                        <header className='fixed top-5 left-2/4 translate-x-[-50%] flex justify-between items-center gap-5 p-5 max-w-[1440px] w-[96%] mx-auto bg-LightColor-100 rounded-lg border border-solid border-LightColor-300 z-10'>
+                                <Logo />
+                                <DesktopNav />
                                 <span
                                         className='min-[901px]:hidden text-xs font-semibold uppercase cursor-pointer'
                                         onClick={handleMobileMenu}
@@ -50,10 +50,10 @@ const Nav = () => {
         return (
                 <nav>
                         <ul className='flex gap-5'>
-                                {menuLinks.map(( items ) => (
+                                {menuLinks.map((items) => (
                                         <li key={items.id}>
-                                                <Link 
-                                                        href={items.url} 
+                                                <Link
+                                                        href={items.url}
                                                         title={items.name}
                                                 >
                                                         {items.name}
