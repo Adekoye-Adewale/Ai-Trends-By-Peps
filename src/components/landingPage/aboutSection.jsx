@@ -12,7 +12,7 @@ export default function AboutSection() {
                                 <div>
                                         <Image 
                                                 {...homeAbtSec.img}
-                                                className="size-full rounded-md border-2 border-solid border-mainColor-500 shadow-[-20px_20px_0px_0px_#000204]"
+                                                className="size-full rounded-xl border-2 border-solid border-mainColor-500 shadow-[-20px_20px_0px_0px_#000204]"
                                         />
                                 </div>
                                 <div className="text-left flex flex-col gap-5">
