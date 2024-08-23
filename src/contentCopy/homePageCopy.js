@@ -139,3 +139,7 @@ export const homeBenefitSec = {
                 },
         ]
 }
+
+export const homeTestimonySec= {
+        title: `Hear from our community`,
+}
