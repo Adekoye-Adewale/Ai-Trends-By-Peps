@@ -1,7 +1,7 @@
 export default function SubTitle({ label }) {
         return (
-                <h4 className='text-xl sm:text-3xl font-medium '>
+                <h3 className='text-xl md:text-3xl font-medium '>
                         {label}
-                </h4>
+                </h3>
         )
 }
