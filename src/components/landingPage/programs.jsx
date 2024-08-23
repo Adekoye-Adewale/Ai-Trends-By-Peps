@@ -34,10 +34,10 @@ export default function Programs() {
 
 const Card = ({ icon, title, ctaLabel, ctaLink}) => {
         return (
-                <div className="flex-[1_1_250px] sm:flex-[0_1_250px] p-5 text-LightColor-200 text-left border-2 border-solid border-mainColor-300 rounded-xl bg-DarkColor-700 shadow-[6px_6px_0px_0px_#000204] transition-all duration-300 hover:bg-DarkColor-900 hover:shadow-[-6px_-6px_0px_0px_#000204] cursor-default [&>a]:mt-2 ">
+                <div className="flex-[1_1_250px] sm:flex-[0_1_250px] p-5 text-left border-2 border-solid border-mainColor-300 rounded-xl bg-DarkColor-700 shadow-[6px_6px_0px_0px_#000204] transition-all duration-300 hover:bg-DarkColor-900 hover:shadow-[-6px_-6px_0px_0px_#000204] cursor-default text-DarkColor-200 [&>h3]:text-LightColor-200 [&>a]:mt-2 ">
                         <div 
                                 dangerouslySetInnerHTML={{ __html: icon }}
-                                className="[&>svg]:w-20 [&>svg]:h-20 mb-5"
+                                className="[&>svg]:w-20 [&>svg]:h-20 mb-5 [&>svg]:text-LightColor-200"
                         >
                         </div>
                         <SubTitle 
