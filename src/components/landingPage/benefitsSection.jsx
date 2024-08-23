@@ -19,7 +19,7 @@ export default function BenefitsSection() {
 
 const Top = () => {
         return (
-                <div className='grid grid-cols-1 sm:grid-cols-2 content-between gap-12 sm:gap-10 '>
+                <div className='grid grid-cols-1 md:grid-cols-2 content-between gap-12 sm:gap-10 '>
                         <div className='flex flex-col gap-5'>
                                 <Title
                                         label={homeBenefitSec.title}
@@ -28,9 +28,12 @@ const Top = () => {
                                         label={homeBenefitSec.desc}
                                 />
                         </div>
-                        <div className='flex flex-col gap-5'>
+                        <div className='flex flex-col gap-5 [&>p]:mt-3'>
                                 <SubTitle label={homeBenefitSec.subTitle} />
-                                <Image {...homeBenefitSec.img} />
+                                <Image 
+                                        {...homeBenefitSec.img} 
+                                        className="size-full rounded-xl border-2 border-solid border-mainColor-500 shadow-[20px_20px_0px_0px_#000204]"
+                                />
                                 <Paragraph label={homeBenefitSec.subTitleDesc}/>
                         </div>
                 </div>
@@ -40,13 +43,13 @@ const Top = () => {
 const Bottom = () => {
         return (
                 <div className='grid md:grid-cols-1 lg:grid-cols-4 gap-5'>
-                        <div className=''>
+                        <div className='border-2 border-solid border-mainColor-300 rounded-xl bg-DarkColor-500 '>
                                 VIDEO
                         </div>
                         {homeBenefitSec.list.map((item) => (
                                 <div 
                                         key={item.id}
-                                        className="flex flex-col gap-5 flex-[1_1_250px] sm:flex-[0_1_250px] p-5 text-LightColor-200 text-left border-2 border-solid border-mainColor-300 rounded-xl bg-DarkColor-700 shadow-[6px_6px_0px_0px_#000204] transition-all duration-300 hover:bg-DarkColor-900 hover:shadow-[-6px_-6px_0px_0px_#000204] cursor-default [&>a]:mt-2 "
+                                        className="flex flex-col gap-5 p-5  text-left border-2 border-solid border-mainColor-300 rounded-xl bg-DarkColor-700 shadow-[6px_6px_0px_0px_#000204] transition-all duration-300 hover:bg-DarkColor-900 hover:shadow-[-6px_-6px_0px_0px_#000204] cursor-default [&>h3]:text-LightColor-200 [&>p]:text-DarkColor-200 "
                                 >
                                         <div
                                                 dangerouslySetInnerHTML={{ __html: item.icon }}
