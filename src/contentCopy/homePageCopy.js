@@ -1,8 +1,8 @@
 export const homeHero = {
-        headline: `Join the top 1% league`,
-        desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`,
-        ctaLabel: `Register Now`,
-        ctaLink: `/`,
+        headline: `Empowering Automation, Driving AI Efficiency`,
+        desc: `Unlock the Potential of Generative AI for Your Business`,
+        ctaLabel: `Get Started Today`,
+        ctaLink: `/sign-up`,
 }
 
 export const tools = [
