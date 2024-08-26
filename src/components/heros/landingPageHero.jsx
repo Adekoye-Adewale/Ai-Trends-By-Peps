@@ -11,7 +11,7 @@ export default function LandingPageHero() {
                         style={{ backgroundImage: 'url(/images/bg-grid-lines-redial.svg)'}}
                 >
                         <div className="flex flex-col gap-5 px-5 max-w-[1440px] w-[95%] mx-auto text-center">
-                                <div className="max-w-3xl mx-auto">
+                                <div className="max-w-7xl mx-auto">
                                         <Headline 
                                                 label={homeHero.headline}
                                         />
