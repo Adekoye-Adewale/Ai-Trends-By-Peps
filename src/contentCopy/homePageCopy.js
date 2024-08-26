@@ -90,7 +90,7 @@ export const tools = [
 
 export const homeAbtSec = {
         title: `About Ai Trends`,
-        desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`,
+        desc: `At AI Trends, we aim to democratize access to cutting-edge AI knowledge and tools. We believe in the   transformative power of AI to automate processes, enhance productivity, and drive business success.`,
         img: {
                 src: `/images/about-Ai_trends.webp`,
                 alt: `About Ai Trends`,
