@@ -43,19 +43,22 @@ const Top = () => {
 const Bottom = () => {
         return (
                 <div className='grid md:grid-cols-1 lg:grid-cols-4 gap-5'>
-                        <div className='border-2 border-solid border-mainColor-300 rounded-xl bg-DarkColor-500 '>
-                                VIDEO
-                        </div>
                         {homeBenefitSec.list.map((item) => (
                                 <div 
                                         key={item.id}
                                         className="flex flex-col gap-5 p-5  text-left border-2 border-solid border-mainColor-300 rounded-xl bg-DarkColor-700 shadow-[6px_6px_0px_0px_#000204] transition-all duration-300 hover:bg-DarkColor-900 hover:shadow-[-6px_-6px_0px_0px_#000204] cursor-default [&>h3]:text-LightColor-200 [&>p]:text-DarkColor-200 "
                                 >
-                                        <div
-                                                dangerouslySetInnerHTML={{ __html: item.icon }}
-                                                className="[&>svg]:w-20 [&>svg]:h-20 mb-5"
-                                        >
-                                        </div>
+                                        {item.img ? (
+                                                <Image {...item.img}/>
+                                        ) : (
+                                                <div
+                                                        dangerouslySetInnerHTML={{ __html: item.icon }}
+                                                        className="[&>svg]:w-20 [&>svg]:h-20 mb-5"
+                                                >
+                                                </div>
+                                        )}
+                                        
+                                        
                                         <SubTitle label={item.title} />
                                         <Paragraph label={item.desc}/>
                                 </div>
