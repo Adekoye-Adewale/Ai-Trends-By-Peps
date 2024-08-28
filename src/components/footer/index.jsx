@@ -6,8 +6,8 @@ import { menuLinks } from '../../contentCopy/headerNavCopy'
 
 export default function Footer() {
         return (
-                <footer className='py-20 px-5 bg-DarkColor-700'>
-                        <div className='max-w-[1440px] w-[96%] mx-auto'>
+                <footer className='py-20 px-5 bg-DarkColor-900'>
+                        <div className='max-w-[1440px] w-[96%] mx-auto grid justify-center gap-y-10'>
                                 <div className='mx-auto'>
                                         <Logo />
                                 </div>
@@ -33,11 +33,11 @@ export default function Footer() {
 const Nav = () => {
         return (
                 <nav>
-                        <ul className='grid text-base divide-y divide-solid divide-LightColor-500'>
+                        <ul className='flex text-3xl font-semibold divide-x divide-solid divide-LightColor-400'>
                                 {menuLinks.map((items) => (
                                         <li
                                                 key={items.id}
-                                                className='py-5'
+                                                className='px-5 text-DarkColor-300 hover:text-mainColor-500'
                                         >
                                                 <Link
                                                         href={items.url}
