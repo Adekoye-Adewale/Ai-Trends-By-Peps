@@ -3,11 +3,13 @@ import { useForm } from "react-hook-form";
 
 export default function Newsletter() {
 
-        const { register, handleSubmit, formState: { errors } } = useForm();
+        const { register, handleSubmit, reset, formState: { errors } } = useForm();
         const [ status, setStatus ] = useState('');
+        const [errorMessage, setErrorMessage] = useState('');
 
         const onSubmit = async (data) => {
                 setStatus('loading');
+                setErrorMessage('');
 
                 try {
                         const res = await fetch('/api/subscribe', {
@@ -22,22 +24,26 @@ export default function Newsletter() {
 
                         if (res.ok) {
                                 setStatus('success');
+                                reset();
                         } else {
                                 setStatus('error');
-                                console.error(result.error);
+                                setErrorMessage(result.error || 'An unexpected error occurred.');
                         }
                 } catch (error) {
                         setStatus('error');
-                        console.error('Fetch Error:', error);
+                        setErrorMessage('Fetch Error: ' + error.message);
                 }
         };
 
         return (
                 <form
                         onSubmit={handleSubmit(onSubmit)}
-                        className='flex flex-col gap-5'
+                        className='flex flex-col gap-2'
                 >
-                        <label htmlFor="email">
+                        <label 
+                                htmlFor="email"
+                                className='hidden'
+                        >
                                 Your email address
                         </label>
                         <input
@@ -65,23 +71,24 @@ export default function Newsletter() {
                                         // }
                                 })}
                                 aria-invalid={errors.email ? "true" : "false"}
+                                className='py-1 px-3 outline-1 outline outline-mainColor-500 rounded-md text-LightColor-400 bg-transparent placeholder:text-LightColor-700'
                         />
                         {errors.email && 
                                 <span 
                                         role="alert"
-                                        className='text-[#ff0000]'
+                                        className='text-[#c00000] text-center text-xs'
                                 >
                                         {errors.email?.message}
                                 </span>}
                         <input
                                 type="submit"
                                 value="Subscribe"
-                                className='py-2 px-10 text-DarkColor-800 bg-mainColor-500 cursor-pointer'
+                                className='py-2 px-10 rounded-md text-DarkColor-800 font-semibold bg-mainColor-500 cursor-pointer transition-all duration-300 hover:text-mainColor-400 hover:bg-DarkColor-700'
                         />
 
-                        {status === 'loading' && <p>Loading...</p>}
-                        {status === 'success' && <p className="text-green-500">Success! Check your email to confirm subscription.</p>}
-                        {status === 'error' && <p className="text-red-500">Oops! Something went wrong. Please try again.</p>}
+                        {status === 'loading' && <p className="text-mainColor-800 text-xs text-center">Loading...</p>}
+                        {status === 'success' && <p className="text-[#009100] text-xs text-center">Success! Check your email to confirm subscription.</p>}
+                        {status === 'error' && <p className="text-[#c00000] text-xs text-center">{errorMessage}</p>}
                 </form>
         )
 }
