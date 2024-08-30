@@ -4,7 +4,11 @@ import NavBar from "@/components/headerNav/navBar";
 import Footer from "@/components/footer";
 
 const inter = Plus_Jakarta_Sans(
-  { subsets: ["latin"], preload: true, display: 'swap' });
+  { 
+    subsets: ["latin"], 
+    preload: true, 
+    // display: 'swap' 
+  });
 
 export const metadata = {
   title: "AI Trends",
