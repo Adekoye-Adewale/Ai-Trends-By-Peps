@@ -3,17 +3,21 @@ import Link from 'next/link'
 import ScrollingTag from './scrollingTag'
 import Logo from '../headerNav/logo'
 import { menuLinks } from '../../contentCopy/headerNavCopy'
+import NewsletterSec from './newsletterSec'
 
 export default function Footer() {
         return (
                 <footer className='pt-20 pb-5 px-5 bg-DarkColor-900'>
-                        <div className='max-w-[1440px] w-[96%] mx-auto grid justify-center gap-y-10'>
-                                <div className='mx-auto'>
+                        <div className='max-w-[1440px] w-[96%] mx-auto grid justify-center gap-y-2'>
+                                <div className='mx-auto mb-10'>
                                         <Logo />
                                 </div>
                                 <Nav />
-                                <ScrollingTag />
-                                <hr />
+                                {/* <ScrollingTag /> */}
+                                <div className='flex flex-col items-center text-LightColor-500'>
+                                        <NewsletterSec/>
+                                </div>
+                                <hr className='text-mainColor-800 mt-10 mb-5' />
                                 <div className='flex justify-between items-center text-LightColor-600'>
                                         <span>
                                                 &#169; 2024 Ai Trends
@@ -32,7 +36,7 @@ export default function Footer() {
 
 const Nav = () => {
         return (
-                <nav>
+                <nav className='mb-10'>
                         <ul className='flex text-3xl font-semibold divide-x divide-solid divide-LightColor-400'>
                                 {menuLinks.map((items) => (
                                         <li
