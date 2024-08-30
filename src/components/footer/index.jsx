@@ -6,7 +6,7 @@ import { menuLinks } from '../../contentCopy/headerNavCopy'
 
 export default function Footer() {
         return (
-                <footer className='py-20 px-5 bg-DarkColor-900'>
+                <footer className='pt-20 pb-5 px-5 bg-DarkColor-900'>
                         <div className='max-w-[1440px] w-[96%] mx-auto grid justify-center gap-y-10'>
                                 <div className='mx-auto'>
                                         <Logo />
@@ -14,7 +14,7 @@ export default function Footer() {
                                 <Nav />
                                 <ScrollingTag />
                                 <hr />
-                                <div className='flex justify-between items-center'>
+                                <div className='flex justify-between items-center text-LightColor-600'>
                                         <span>
                                                 &#169; 2024 Ai Trends
                                         </span>
