@@ -8,6 +8,7 @@ export default function Programs() {
         return (
                 <section 
                         className="grid place-content-center py-20 sm:py-40 max-w-screen bg-LightColor-200 overflow-x-hidden"
+                        id={`resources`}
                 >
                         <div className="px-5 max-w-[1440px] w-[95%] mx-auto text-center">
                                 <Title
