@@ -8,6 +8,7 @@ export default function BenefitsSection() {
                 <section
                         className="grid place-content-center py-20 sm:py-40 max-w-screen text-mainColor-100 bg-DarkColor-700 overflow-x-hidden bg-no-repeat bg-center bg-cover bg-gradient-to-r from-DarkColor-700 via-transparent to-DarkColor-700"
                         style={{ backgroundImage: 'url(/images/light-grid-circle-lines-low.svg)' }}
+                        id={`benefits`}
                 >
                         <div className="flex flex-col gap-20 px-5 max-w-[1440px] w-[95%] mx-auto text-left ">
                                 <Top/>
