@@ -1,11 +1,17 @@
 import React from 'react'
-import PopUpBg from './popUpBg'
 import Link from 'next/link'
 import { allRes } from '@/contentCopy/resouces'
+import { CloseIcon } from '@/icons'
 
-export default function ResourcesPopUp() {
+export default function ResourcesPopUp({ closeResPopUp }) {
         return (
-                <div className='fixed inset-0 bg-DarkColor-900/85 backdrop-blur z-[2]'>
+                <div className='fixed inset-0 bg-DarkColor-900/85 backdrop-blur z-[2] animate-fade-in'>
+                        <div 
+                                onClick={closeResPopUp}
+                                className='block md:hidden text-mainColor-300 bg-DarkColor-700 absolute top-[115px] right-[10px] p-1 rounded-full'
+                        >
+                                <CloseIcon/>
+                        </div>
                         <div className='max-w-[1440px] w-[96%] mx-auto mt-32'>
                                 <Cards/>
                         </div>
