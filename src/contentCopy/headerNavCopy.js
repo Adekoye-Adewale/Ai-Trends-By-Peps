@@ -21,12 +21,7 @@ export const menuLinks = [
         },
         { 
                 id: 5, 
-                name: 'Products', 
-                url: '/#products',
-        },
-        { 
-                id: 6, 
-                name: 'Courses', 
-                url: '/#courses',
+                name: 'Resources', 
+                url: '/#resources',
         },
 ]
