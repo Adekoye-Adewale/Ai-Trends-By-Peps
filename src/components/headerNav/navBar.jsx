@@ -35,9 +35,11 @@ export default function NavBar() {
                         <MobileNav
                                 onClick={handleMobileMenu}
                                 openNav={openNav}
-                                handleOpenRes={handleOpenRes}
+                                openRes={openRes}
+                                setOpenNav={setOpenNav}
+                                setOpenRes={setOpenRes}
                         />
-                        {openRes ? (<ResourcesPopUp />) : ''}                        
+                        {openRes ? (<ResourcesPopUp closeResPopUp={handleOpenRes} />) : ''}                        
                 </>
         )
 }
