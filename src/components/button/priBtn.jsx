@@ -1,4 +1,4 @@
-import { RightArrow } from "@/icons/arrows";
+import { RightArrow } from "@/icons";
 import Link from "next/link";
 
 export default function PriBtn({ href, label }) {
