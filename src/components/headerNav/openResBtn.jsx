@@ -1,5 +1,5 @@
 import React from 'react'
-import { RightArrow } from "@/icons/arrows";
+import { RightArrow } from '@/icons'
 
 
 export default function OpenResBtn({ handleOpenRes }) {
