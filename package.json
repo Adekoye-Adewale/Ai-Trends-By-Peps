@@ -16,7 +16,8 @@
     "next-video": "^1.1.4",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.53.0"
+    "react-hook-form": "^7.53.0",
+    "react-phone-number-input": "^3.4.5"
   },
   "devDependencies": {
     "eslint": "^8",
