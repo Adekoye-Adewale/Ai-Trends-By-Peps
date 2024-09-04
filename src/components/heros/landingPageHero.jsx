@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { homeHero } from "@/contentCopy/homePageCopy";
 import { Headline, Paragraph } from "../text";
 import Cta from "./cta";
@@ -14,6 +14,20 @@ export default function LandingPageHero() {
         const handleContactPopup = () => {
                 setOpenPop(!openPop);
         }
+
+        useEffect(() => {
+                const handleKeyDown = (event) => {
+                        if (event.key === 'Escape' && openPop) {
+                                handleContactPopup();
+                        }
+                };
+                
+                window.addEventListener('keydown', handleKeyDown);
+                
+                return () => {
+                        window.removeEventListener('keydown', handleKeyDown);
+                };
+        }, [openPop]);
 
         return (
                 <>

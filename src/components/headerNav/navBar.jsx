@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Logo from './logo'
 import MobileNav from './mobileNav'
 import ResourcesPopUp from '../popUps/resourcesPopUp'
@@ -15,8 +15,22 @@ export default function NavBar() {
         }
 
         const handleOpenRes = () => {
-                setOpenRes(!openRes);
-        }
+                setOpenRes(prevOpenRes => !prevOpenRes);
+        };
+
+        useEffect(() => {
+                const handleKeyDown = (event) => {
+                        if (event.key === 'Escape' && openRes) {
+                                handleOpenRes();
+                        }
+                };
+
+                window.addEventListener('keydown', handleKeyDown);
+
+                return () => {
+                        window.removeEventListener('keydown', handleKeyDown);
+                };
+        }, [openRes]);
 
         return (
                 <>
