@@ -8,3 +8,6 @@
         box-sizing: border-box;
         min-width: 0;
 }
+html {
+        scroll-behavior: smooth;
+}
