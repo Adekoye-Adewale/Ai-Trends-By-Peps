@@ -5,7 +5,7 @@ import { CloseIcon } from '@/icons'
 
 export default function ResourcesPopUp({ closeResPopUp }) {
         return (
-                <div className='fixed inset-0 bg-DarkColor-900/85 backdrop-blur z-[2] animate-fade-in'>
+                <div className='fixed inset-0 bg-DarkColor-900/85 backdrop-blur z-[2] animate-fade-in-250'>
                         <div 
                                 onClick={closeResPopUp}
                                 className='block md:hidden text-mainColor-300 bg-DarkColor-700 absolute top-[115px] right-[10px] p-1 rounded-full'
