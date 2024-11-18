@@ -101,12 +101,12 @@ export const homeAbtSec = {
 }
 
 export const homeBenefitSec = {
-        title: `Why Ai Trends?`,
+        title: `Why AI Trends?`,
         desc: `AI Trends is a platform for mastering generative AI and automation. It caters to tech enthusiasts, business professionals, and enterprise leaders, offering tools, insights, and a community for leveraging AI to achieve efficiency and innovation.`,
         subTitle: `Talent is key. Support is power. Mentorship creates superheroes.`,
-        subTitleDesc: `Ai Trends foster a supportive and collaborative environment for learning and growth.`,
+        subTitleDesc: `AI Trends foster a supportive and collaborative environment for learning and growth.`,
         img: {
-                src: `/images/about-Ai_trends.webp`,
+                src: `/images/about-AI_trends.webp`,
                 alt: `Talent is key. Support is power. Mentorship create superhero`,
                 title: `Talent is key. Support is power. Mentorship create superhero`,
                 width: 500,
