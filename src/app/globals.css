@@ -11,3 +11,8 @@
 html {
         scroll-behavior: smooth;
 }
+.swiper-transition .swiper-wrapper {
+    -webkit-transition-timing-function: linear;
+    -o-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
