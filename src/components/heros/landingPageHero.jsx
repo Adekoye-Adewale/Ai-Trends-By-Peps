@@ -32,7 +32,7 @@ export default function LandingPageHero() {
         return (
                 <>
                         <section 
-                                className="grid place-content-center py-10 sm:py-40 max-w-screen h-[95svh] sm:h-screen bg-mainColor-300 overflow-x-hidden bg-no-repeat bg-center bg-cover bg-gradient-to-r from-mainColor-300 via-transparent to-mainColor-300" 
+                                className="grid place-content-center sm:pb-10 sm:pt-32 py-10 max-w-screen min-h-[95svh] sm:h-screen bg-mainColor-300 overflow-x-hidden bg-no-repeat bg-center bg-cover bg-gradient-to-r from-mainColor-300 via-transparent to-mainColor-300" 
                                 style={{ backgroundImage: 'url(/images/bg-grid-lines-redial.svg)'}}
                         >
                                 <div className="flex flex-col gap-5 px-5 max-w-[1440px] w-[95%] mx-auto text-center">
