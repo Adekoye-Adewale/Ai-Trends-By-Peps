@@ -89,12 +89,12 @@ export const tools = [
 ]
 
 export const homeAbtSec = {
-        title: `About Ai Trends`,
+        title: `About AI Trends`,
         desc: `At AI Trends, we aim to democratize access to cutting-edge AI knowledge and tools. We believe in the   transformative power of AI to automate processes, enhance productivity, and drive business success.`,
         img: {
                 src: `/images/about-Ai_trends.webp`,
-                alt: `About Ai Trends`,
-                title: `About Ai Trends`,
+                alt: `About AI Trends`,
+                title: `About AI Trends`,
                 width: 500,
                 height: 333.5,
         }
