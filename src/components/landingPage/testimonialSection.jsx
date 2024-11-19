@@ -25,7 +25,7 @@ const Card = () => {
                         {TestimonialCopy.map((item) => (
                                 <div 
                                         key={item.id}
-                                        className='flex flex-col gap-5  flex-[0_1_250px] p-5 rounded-xl border-2 border-solid border-DarkColor-300 bg-mainColor-100 shadow-[6px_6px_0px_0px_#000204] transition-all duration-300 hover:bg-LightColor-100 hover:shadow-[-6px_-6px_0px_0px_#000204] cursor-default'
+                                        className='flex flex-col gap-5  flex-[0_1_350px] p-5 rounded-xl border-2 border-solid border-DarkColor-300 bg-mainColor-100 shadow-[6px_6px_0px_0px_#000204] transition-all duration-300 hover:bg-LightColor-100 hover:shadow-[-6px_-6px_0px_0px_#000204] cursor-default'
                                 >
                                         <div className='flex gap-5 items-center'>
                                                 <Image 
