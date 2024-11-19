@@ -20,7 +20,7 @@ export default function Footer() {
                                 <hr className='text-mainColor-800 mt-10 mb-2' />
                                 <div className='flex justify-between items-center text-LightColor-600'>
                                         <span>
-                                                &#169; 2024 Ai Trends
+                                                &#169; 2024 AI Trends
                                         </span>
                                         <Link
                                                 href={'/'}
