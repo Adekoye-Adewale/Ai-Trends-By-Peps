@@ -6,7 +6,7 @@ export default function NewsletterSec() {
         return (
                 <>
                         <span className='text-center text-lg mb-5'>
-                                Stay up to date on all the Ai Trends news!
+                                Stay up to date on all the AI Trends news!
                         </span>
                         <Newsletter />
                 </>
