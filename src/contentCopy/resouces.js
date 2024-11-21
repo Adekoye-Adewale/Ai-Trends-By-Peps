@@ -7,6 +7,13 @@ export const allRes = [
                         href: `/2024-social-media-daily-post-template`,
                         title: `2024 Social Media Daily Post Template`,
                         alt: `2024 Social Media Daily Post Template`,
+                },
+                img: {
+                        src: `/images/Sunny.png`,
+                        title: `2024 Social Media Daily Post Template`,
+                        alt: `2024 Social Media Daily Post Template`,
+                        width: 1000,
+                        height: 400,
                 }
         },
         { 
@@ -17,6 +24,13 @@ export const allRes = [
                         href: `/10-top-tips-for-creating-evergreen-contents`,
                         title: `10 top tips for creating evergreen contents`,
                         alt: `10 top tips for creating evergreen contents`,
+                },
+                img: {
+                        src: `/images/Sunny.png`,
+                        title: `10 top tips for creating evergreen contents`,
+                        alt: `10 top tips for creating evergreen contents`,
+                        width: 1000,
+                        height: 400,
                 }
         },
         { 
@@ -27,6 +41,13 @@ export const allRes = [
                         href: `/Instagram-ads-101`,
                         title: `Instagram Ads 101`,
                         alt: `Instagram Ads 101`,
+                },
+                img: {
+                        src: `/images/Sunny.png`,
+                        title: `Instagram Ads 101`,
+                        alt: `Instagram Ads 101`,
+                        width: 1000,
+                        height: 400,
                 }
         },
         { 
@@ -37,6 +58,13 @@ export const allRes = [
                         href: `/templates-for-your-professional-resume`,
                         title: `Templates for your professional resume`,
                         alt: `Templates for your professional resume`,
+                },
+                img: {
+                        src: `/images/Sunny.png`,
+                        title: `Templates for your professional resume`,
+                        alt: `Templates for your professional resume`,
+                        width: 1000,
+                        height: 400,
                 }
         },
         { 
@@ -47,6 +75,13 @@ export const allRes = [
                         href: `/the-act-of-public-speaking`,
                         title: `The act of public speaking`,
                         alt: `The act of public speaking`,
+                },
+                img: {
+                        src: `/images/Sunny.png`,
+                        title: `The act of public speaking`,
+                        alt: `The act of public speaking`,
+                        width: 1000,
+                        height: 400,
                 }
         },
         { 
@@ -57,6 +92,13 @@ export const allRes = [
                         href: `/creating-your-campaign-videos-using-AI`,
                         title: `Creating your campaign videos using AI`,
                         alt: `Creating your campaign videos using AI`,
+                },
+                img: {
+                        src: `/images/Sunny.png`,
+                        title: `Creating your campaign videos using AI`,
+                        alt: `Creating your campaign videos using AI`,
+                        width: 1000,
+                        height: 400,
                 }
         },
 ]
