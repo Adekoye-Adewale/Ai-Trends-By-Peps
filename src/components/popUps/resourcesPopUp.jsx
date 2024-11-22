@@ -22,7 +22,7 @@ export default function ResourcesPopUp({ closeResPopUp }) {
 const Cards = () => {
         return (
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 rounded-xl bg-mainColor-300 max-w-96 ml-auto'>
-                        {allRes.map(item => (
+                        {allRes.slice(0, 6).map(item => (
                                 <Link 
                                         {...item.slug} 
                                         key={item.id}
