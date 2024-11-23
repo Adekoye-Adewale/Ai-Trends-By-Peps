@@ -22,17 +22,17 @@ export default function ResourcesPage() {
                         <ListSection
                                 content={getEbooksAndGuides}
                                 secTitle={'E-Books and Guides'}
-                                link={'/resources/ebooks-and-guides'}
+                                link={'/ebooks-and-guides'}
                         />
                         <ListSection
                                 content={getTemplatesAndToolkits}
                                 secTitle={'Templates and Toolkits'}
-                                link={'/resources/templates-and-toolkits'}
+                                link={'/templates-and-toolkits'}
                         />
                         <ListSection
                                 content={getOnlineCourses}
                                 secTitle={'Online Courses'}
-                                link={'/resources/online-courses'}
+                                link={'/online-courses'}
                         />
                 </main>
         )
