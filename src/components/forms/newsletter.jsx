@@ -46,7 +46,7 @@ export default function Newsletter() {
                         >
                                 Your email address
                         </label>
-                        <span className='flex '>
+                        <span className='grid sm:flex'>
                                 <input
                                         type="email"
                                         name="email"
@@ -66,18 +66,14 @@ export default function Newsletter() {
                                                         value: 50,
                                                         message: "Email cannot exceed 50 characters"
                                                 },
-                                                // validate: {
-                                                //         notGmail: value =>
-                                                //                 !value.endsWith("@gmail.com") || "Gmail addresses are not allowed"
-                                                // }
                                         })}
                                         aria-invalid={errors.email ? "true" : "false"}
-                                        className='py-1 px-3 outline-1 outline outline-mainColor-500 rounded-md rounded-r-none text-LightColor-400 bg-transparent placeholder:text-LightColor-700'
+                                        className='py-1 px-3 outline-1 outline outline-mainColor-500 rounded-none rounded-t-md sm:rounded-l-md sm:rounded-r-none text-LightColor-400 bg-transparent placeholder:text-LightColor-700'
                                 />
                                 <input
                                         type="submit"
                                         value="Subscribe"
-                                        className='py-2 px-6 rounded-md rounded-l-none border-solid border border-mainColor-500 outline-1 outline outline-mainColor-500 text-sm text-DarkColor-800 font-semibold bg-mainColor-500 cursor-pointer transition-all duration-300 hover:text-mainColor-400 hover:bg-DarkColor-700'
+                                        className='py-2 px-6 rounded-md rounded-t-none sm:rounded-l-none sm:rounded-r-md border-solid border border-mainColor-500 outline-1 outline outline-mainColor-500 text-sm text-DarkColor-800 font-semibold bg-mainColor-500 cursor-pointer transition-all duration-300 hover:text-mainColor-400 hover:bg-DarkColor-700'
                                 />
                         </span>
                         {errors.email && 
