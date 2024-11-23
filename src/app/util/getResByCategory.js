@@ -2,7 +2,7 @@ import { allRes } from "@/contentCopy/resouces";
 
 
 export const filterByCategory = (category) => {
-        return allRes.filter(item => item.category === category);
+        return allRes.filter(item => item.category?.name === category);
 };
 
 export const getOnlineCourses = filterByCategory("Online courses");
