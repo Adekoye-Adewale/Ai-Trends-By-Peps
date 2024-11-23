@@ -12,29 +12,35 @@ export default function ResourcesPopUp({ closeResPopUp }) {
                         >
                                 <CloseIcon/>
                         </div>
-                        <div className='max-w-[1440px] w-[96%] mx-auto mt-32 overflow-y-auto'>
-                                <Cards/>
+                        <div className='max-w-[1440px] w-[96%] mx-auto mt-32'>
+                                <Cards
+                                        closeResPopUp={closeResPopUp}
+                                />
                         </div>
                 </div>
         )
 }
 
-const Cards = () => {
+const Cards = ({ closeResPopUp }) => {
         return (
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 rounded-xl bg-mainColor-300 max-w-96 ml-auto'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 rounded-xl bg-mainColor-300 max-w sm:max-w-96 max-h-[60vh] ml-auto  overflow-y-auto'>
                         {allRes.slice(0, 6).map(item => (
                                 <Link 
-                                        {...item.slug} 
                                         key={item.id}
-                                        className='flex flex-col min-h-32 rounded-lg p-4 bg-LightColor-300 border-solid border-2 border-mainColor-700 transition-all duration-300 hover:bg-mainColor-500'
+                                        href={`/resources/${item.slug.href}`} 
+                                        title={item.slug.title}
+                                        className='flex flex-col gap-5 sm:min-h-32 rounded-lg p-4 bg-LightColor-300 border-solid border-2 border-mainColor-700 transition-all duration-300 hover:bg-mainColor-500'
+                                        onClick={closeResPopUp}
                                 >
-                                        <div className='flex justify-between text-xs'>
+                                        <div 
+                                                className='flex justify-between text-xs'
+                                        >
                                                 <span className='text-xs'>
-                                                        {item.category}
+                                                        {item.category.name}
                                                 </span>
                                                 svg
                                         </div>
-                                        <span className='block text-sm font-semibold text-wrap mt-auto max-w-40'>
+                                        <span className='block text-sm font-bold text-wrap mt-auto max-w-52 sm:max-w-40'>
                                                 {item.title}
                                         </span>
                                 </Link>
