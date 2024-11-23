@@ -8,10 +8,10 @@ export default function ListSection({ content, secTitle, link }) {
                 <section className='grid gap-5 py-20 overflow-clip'>
                         <div className='max-w-[1440px] w-[95%] mx-auto grid gap-5'>
                                 <div className='flex justify-between items-center'>
-                                        <div>
+                                        <div className='[&>h2]:text-2xl sm:text-4xl'>
                                                 <Title label={secTitle}/>
                                         </div>
-                                        <div>
+                                        <div className='text-sm text-nowrap underline underline-offset-1'>
                                                 <Link 
                                                         href={link} 
                                                         title='open all'
