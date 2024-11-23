@@ -4,7 +4,7 @@ import { Headline, Paragraph, Title } from '../text'
 
 export function TopBanner({ img, title, label }) {
         return (
-                <div className='relative pt-40 pb-20 min-h-[500px] bg-DarkColor-700'>
+                <section className='relative pt-56 pb-20 min-h-[500px] bg-DarkColor-700'>
                         <Image 
                                 {...img}
                                 className='absolute top-0 left-0 size-full object-cover z-[0] brightness-[.25]'
@@ -13,13 +13,13 @@ export function TopBanner({ img, title, label }) {
                                 <Headline label={title}/>                                
                                 {title !== 'Category Not Found' && (<Paragraph label={label} />)}
                         </div>
-                </div>
+                </section>
         )
 }
 
 export function Banner({ img, title, label }) {
         return (
-                <div className='relative pt-20 pb-20 min-h-[500px] bg-DarkColor-700'>
+                <section className='relative pt-20 pb-20 min-h-[500px] bg-DarkColor-700'>
                         <Image
                                 {...img}
                                 className='absolute top-0 left-0 size-full object-cover z-[1] brightness-[.25]'
@@ -28,6 +28,6 @@ export function Banner({ img, title, label }) {
                                 <Title label={title}/>
                                 <Paragraph label={label} />
                         </div>
-                </div>
+                </section>
         )
 }
