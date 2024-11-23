@@ -20,7 +20,7 @@ export const Courses = {
                         title: `E-Books and Guides`,
                         cta: {
                                 label: `See Programs`,
-                                href: `/Educational Content`,
+                                href: `/ebooks-and-guides`,
                         },
                         desc: `Download our expertly crafted e-books and guides to deepen your understanding of AI and its applications. Topics include AI basics, advanced techniques, and sector-specific use cases.`,
                         duration: `24 weeks`,
@@ -46,7 +46,7 @@ export const Courses = {
                         title: `Templates and Toolkits`,
                         cta: {
                                 label: `See Programs`,
-                                href: `/community-and-newsletter`,
+                                href: `/templates-and-toolkits`,
                         },
                         desc: `Access our customizable templates and toolkits designed to streamline your AI projects. These resources are practical, easy to use, and tailored to various industries.`,
                         duration: `24 weeks`,
@@ -72,7 +72,7 @@ export const Courses = {
                         title: `Online Courses`,
                         cta: {
                                 label: `See Programs`,
-                                href: `/Consultancy Services`,
+                                href: `/online-courses`,
                         },
                         desc: `Enroll in our online courses to gain in-depth knowledge and hands-on experience with AI tools and technologies. Our courses are designed for all skill levels, from beginners to advanced practitioners`,
                         duration: `24 weeks`,
