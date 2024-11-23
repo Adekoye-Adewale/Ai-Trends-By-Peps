@@ -10,7 +10,9 @@ export default function ContactPopUp({ setOpenPop, openPop}) {
 
         return (
                 <PopUpBg clickClose={handleClickClose}>
-                        <ContactForm/>
+                        <ContactForm
+                                handleClickClose={handleClickClose}
+                        />
                 </PopUpBg>
         )
 }
