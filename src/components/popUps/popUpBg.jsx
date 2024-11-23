@@ -7,7 +7,7 @@ export default function PopUpBg({ children, clickClose }) {
                         <div className='relative max-w-4xl size-full py-10 px-5 m-auto bg-mainColor-100 rounded-xl overflow-y-auto'>
                                 <div 
                                         onClick={clickClose}
-                                        className='absolute top-5 right-5 p-2 bg-red-500 text-red-100 border-solid border border-red-900 rounded-full cursor-pointer'
+                                        className='absolute top-5 right-5 p-2 bg-red-200 text-red-900 border-solid border border-red-900 rounded-full cursor-pointer'
                                 >
                                         <CloseIcon/>
                                 </div>
