@@ -22,13 +22,13 @@ export default async function CategoryPage({ params }) {
 
 
         return (
-                <div>
+                <main>
                         <CategoryPageComponent
                                 bgImg={resImg}
                                 pageTitle={categoryName}
                                 desc={`Explore resources in the ${categoryName} category.`}
                                 content={filteredContent}
                         />
-                </div>
+                </main>
         )
 }
