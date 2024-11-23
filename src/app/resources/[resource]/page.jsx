@@ -12,13 +12,13 @@ export default async function ResourcePage({ params }) {
         const article = filteredContent[0];
 
         return (
-                <div>
+                <main>
                         <ResPage
                                 bgImg={article.img}
                                 pageTitle={article.title}
                                 desc={article.title}
                                 content={article.body}
                         />
-                </div>
+                </main>
         )
 }
