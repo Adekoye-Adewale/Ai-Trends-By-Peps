@@ -22,11 +22,11 @@ export default function ToolsSlide() {
                         modules={[Autoplay]}
                         breakpoints={{
                                 10: {
-                                        slidesPerView: 3,
+                                        slidesPerView: 4,
                                         spaceBetween: 10,
                                 },
                                 520: {
-                                        slidesPerView: 4,
+                                        slidesPerView: 5,
                                         spaceBetween: 20,
                                 },
                                 800: {
@@ -46,7 +46,7 @@ export default function ToolsSlide() {
                                 >
                                         <Image 
                                                 {...item} 
-                                                className='w-full h-full max-w-32'
+                                                className='w-full h-full max-w-20 sm:max-w-32'
                                         />
                                 </SwiperSlide>
                         ))}
