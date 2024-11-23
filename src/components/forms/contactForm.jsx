@@ -3,7 +3,7 @@ import { useForm, Controller } from 'react-hook-form';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
-export default function ContactForm() {
+export default function ContactForm({ handleClickClose }) {
 
         const [ value, setValue ] = useState()
         const { register, handleSubmit, reset, control, formState: { errors } } = useForm();
@@ -11,6 +11,7 @@ export default function ContactForm() {
         const onSubmit = async (data) => {
                 console.log(data);
                 reset();
+                handleClickClose();
         }
 
         return (
@@ -43,7 +44,12 @@ export default function ContactForm() {
                                         })}
                                         aria-invalid={errors.fullname ? "true" : "false"}
                                         className='py-1 px-3 outline-1 outline outline-mainColor-500 rounded-md rounded-r-none bg-transparent placeholder:text-LightColor-700/65'
-                                />                                
+                                />       
+                                {errors.fullname && (
+                                        <span role="alert" className="text-red-600">
+                                                {errors.fullname.message}
+                                        </span>
+                                )}                         
                         </span>
 
                         {/* Email Field */}
@@ -194,7 +200,7 @@ export default function ContactForm() {
 
                         <input
                                 type="submit"
-                                value="Subscribe"
+                                value="Submit"
                                 className='py-2 px-6 rounded-lg border-solid border border-mainColor-500 outline-1 outline outline-mainColor-500 text-sm text-DarkColor-800 font-semibold bg-mainColor-500 cursor-pointer transition-all duration-300 hover:text-mainColor-400 hover:bg-DarkColor-700'
                         />
                 </form>
