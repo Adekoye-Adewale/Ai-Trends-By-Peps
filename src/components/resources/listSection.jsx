@@ -27,7 +27,8 @@ export default function ListSection({ content, secTitle, link }) {
                                                         <Card 
                                                                 img={item.img} 
                                                                 label={item.title} 
-                                                                slug={item.slug}
+                                                                slug={`/resources${item.slug.href}`}
+                                                                linkTitle={item.slug.title}
                                                         />
                                                 </Fragment>
                                         ))}
@@ -37,31 +38,18 @@ export default function ListSection({ content, secTitle, link }) {
         )
 }
 
-export function CategoryListSection({ content, secTitle, link }) {
+export function CategoryListSection({ content }) {
         return (
                 <section className='grid gap-5 py-20 overflow-clip'>
-                        <div className='max-w-[1440px] w-[95%] mx-auto grid gap-5'>
-                                <div className='flex justify-between items-center'>
-                                        <div>
-                                                <Title label={secTitle} />
-                                        </div>
-                                        <div>
-                                                <Link
-                                                        href={link}
-                                                        title='open all'
-                                                        target='__blank'
-                                                >
-                                                        Load more
-                                                </Link>
-                                        </div>
-                                </div>
+                        <div className='max-w-[1440px] w-[95%] mx-auto'>
                                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
                                         {content.map((item) => (
                                                 <Fragment key={item.id}>
                                                         <Card
                                                                 img={item.img}
                                                                 label={item.title}
-                                                                slug={item.slug}
+                                                                slug={`/resources${item.slug.href}`}
+                                                                linkTitle={item.slug.title}
                                                         />
                                                 </Fragment>
                                         ))}
@@ -71,7 +59,7 @@ export function CategoryListSection({ content, secTitle, link }) {
         )
 }
 
-const Card =({ img, label, slug })=> {
+const Card = ({ img, label, slug, linkTitle })=> {
         return(
                 <div className='rounded-xl border-2 border-solid border-DarkColor-300 bg-mainColor-100 shadow-[6px_6px_0px_0px_#000204] transition-all duration-300 hover:shadow-[-6px_-6px_0px_0px_#000204] cursor-default overflow-clip hover:bg-mainColor-200'>
                         <Image 
@@ -81,7 +69,11 @@ const Card =({ img, label, slug })=> {
                                 <SubTitle 
                                         label={label}
                                 />
-                                <Link {...slug}>
+                                <Link 
+                                        href={slug} 
+                                        title={linkTitle} 
+                                        target='_blank'
+                                >
                                         Read more
                                 </Link>
                         </div>
