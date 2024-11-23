@@ -17,7 +17,9 @@ export default function MobileNav({ onClick, openNav, setOpenNav, openRes, setOp
                         >
                                 close
                         </span>
-                        <Nav />
+                        <Nav 
+                                onClick={onClick} 
+                        />
                         <div className='mt-auto'>
                                 <OpenResBtn
                                         handleOpenRes={mobileHandleOpenRes}
@@ -27,7 +29,7 @@ export default function MobileNav({ onClick, openNav, setOpenNav, openRes, setOp
         )
 }
 
-const Nav = () => {
+const Nav = ({ onClick }) => {
         return (
                 <nav>
                         <ul className='grid text-base divide-y divide-solid divide-LightColor-500'>
@@ -35,6 +37,7 @@ const Nav = () => {
                                         <li
                                                 key={items.id}
                                                 className='py-5'
+                                                onClick={onClick}
                                         >
                                                 <Link
                                                         href={items.url}
