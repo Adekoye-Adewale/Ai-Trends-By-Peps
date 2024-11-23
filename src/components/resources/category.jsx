@@ -3,7 +3,7 @@ import { CategoryListSection, TopBanner } from '.'
 
 export default function CategoryPageComponent({ bgImg, pageTitle, desc, content}) {
         return (
-                <div>
+                <>
                         <TopBanner
                                 img={bgImg}
                                 title={pageTitle}
@@ -12,6 +12,6 @@ export default function CategoryPageComponent({ bgImg, pageTitle, desc, content}
                         <CategoryListSection
                                 content={content}                                
                         />
-                </div>
+                </>
         )
 }
