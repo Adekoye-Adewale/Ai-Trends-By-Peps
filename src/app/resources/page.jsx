@@ -24,11 +24,13 @@ export default function ResourcesPage() {
                                 secTitle={'E-Books and Guides'}
                                 link={'/ebooks-and-guides'}
                         />
-                        <ListSection
-                                content={getTemplatesAndToolkits}
-                                secTitle={'Templates and Toolkits'}
-                                link={'/templates-and-toolkits'}
-                        />
+                        <div className='bg-DarkColor-100'>
+                                <ListSection
+                                        content={getTemplatesAndToolkits}
+                                        secTitle={'Templates and Toolkits'}
+                                        link={'/templates-and-toolkits'}
+                                />
+                        </div>
                         <ListSection
                                 content={getOnlineCourses}
                                 secTitle={'Online Courses'}
