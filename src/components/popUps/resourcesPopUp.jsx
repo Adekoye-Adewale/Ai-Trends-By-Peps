@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { allRes } from '@/contentCopy/resouces'
 import { CloseIcon } from '@/icons'
+import TertiaryBtn from '../button/tertiaryBtn'
 
 export default function ResourcesPopUp({ closeResPopUp }) {
         return (
@@ -45,6 +46,12 @@ const Cards = ({ closeResPopUp }) => {
                                         </span>
                                 </Link>
                         ))}
+                        <div className='col-span-1 sm:col-span-2 text-center flex justify-center'>
+                                <TertiaryBtn
+                                        href={'/resources'}
+                                        label={'Goto resources library'}
+                                />
+                        </div>
                 </div>
         )
 }
