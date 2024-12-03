@@ -2,6 +2,15 @@ import { Banner, TopBanner } from '@/components/resources'
 import ListSection from '@/components/resources/listSection'
 import React from 'react'
 import { getEbooksAndGuides, getOnlineCourses, getTemplatesAndToolkits } from '../util/getResByCategory'
+import { SanityDocument } from "next-sanity";
+import { client } from "@/sanity/client";
+
+const POSTS_QUERY = `*[
+  _type == "post"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...12]{_id, title, slug, category, publishedAt, image, body}`;
+
+const options = { next: { revalidate: 30 } };
 
 const resImg = {
         src: `/images/Sunny.png`,
@@ -11,7 +20,11 @@ const resImg = {
         height: 800
 }
 
-export default function ResourcesPage() {
+export default async function ResourcesPage() {
+        const posts = await client.fetch(POSTS_QUERY, {}, options);
+
+        console.log('list===++', posts)
+
         return (
                 <main className="overflow-x-hidden">
                         <TopBanner 
