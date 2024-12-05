@@ -27,7 +27,7 @@ export default function ListSection({ content, secTitle, link }) {
                                                         <Card 
                                                                 img={item.img} 
                                                                 label={item.title} 
-                                                                slug={`/resources${item.slug.href}`}
+                                                                slug={`/resources/${item.slug.href}`}
                                                                 linkTitle={item.slug.title}
                                                         />
                                                 </Fragment>
