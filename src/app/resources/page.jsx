@@ -1,14 +1,13 @@
+import React from 'react'
 import { Banner, TopBanner } from '@/components/resources'
 import ListSection from '@/components/resources/listSection'
-import React from 'react'
-import { getEbooksAndGuides, getOnlineCourses, getTemplatesAndToolkits } from '../util/getResByCategory'
-import { SanityDocument } from "next-sanity";
+import { processPostsWithImageUrls } from '../util/getPosts';
 import { client } from "@/sanity/client";
 
 const POSTS_QUERY = `*[
   _type == "post"
   && defined(slug.current)
-]|order(publishedAt desc)[0...12]{_id, title, slug, category, publishedAt, image, body}`;
+]|order(publishedAt desc)[0...12]{_id, title, slug, category, publishedAt, image, body, featured, category, commentsEnable, relatedPosts}`;
 
 const options = { next: { revalidate: 30 } };
 
@@ -23,7 +22,11 @@ const resImg = {
 export default async function ResourcesPage() {
         const posts = await client.fetch(POSTS_QUERY, {}, options);
 
-        console.log('list===++', posts)
+        const allPosts = processPostsWithImageUrls(posts)
+
+        const fetchEbooks = allPosts.filter(item => item?.category === 'ebooks-guides');
+        const fetchTemplates = allPosts.filter(item => item?.category === 'templates-toolkits');
+        const fetchCourses = allPosts.filter(item => item?.category === 'online-courses');
 
         return (
                 <main className="overflow-x-hidden">
@@ -33,19 +36,19 @@ export default async function ResourcesPage() {
                                 label={'lorem text'}
                         />
                         <ListSection
-                                content={getEbooksAndGuides}
+                                content={fetchEbooks}
                                 secTitle={'E-Books and Guides'}
                                 link={'/ebooks-and-guides'}
                         />
                         <div className='bg-DarkColor-100'>
                                 <ListSection
-                                        content={getTemplatesAndToolkits}
+                                        content={fetchTemplates}
                                         secTitle={'Templates and Toolkits'}
                                         link={'/templates-and-toolkits'}
                                 />
                         </div>
                         <ListSection
-                                content={getOnlineCourses}
+                                content={fetchCourses}
                                 secTitle={'Online Courses'}
                                 link={'/online-courses'}
                         />
