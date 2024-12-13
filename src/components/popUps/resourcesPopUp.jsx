@@ -1,10 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-import { allRes } from '@/contentCopy/resouces'
+import { usePosts } from '@/app/hooks/usePosts'
 import { CloseIcon } from '@/icons'
 import TertiaryBtn from '../button/tertiaryBtn'
 
 export default function ResourcesPopUp({ closeResPopUp }) {
+        const { posts, isLoading } = usePosts();
         return (
                 <div className='fixed inset-0 bg-DarkColor-900/85 backdrop-blur z-[2] animate-fade-in-250'>
                         <div 
@@ -14,18 +15,21 @@ export default function ResourcesPopUp({ closeResPopUp }) {
                                 <CloseIcon/>
                         </div>
                         <div className='max-w-[1440px] w-[96%] mx-auto mt-32'>
-                                <Cards
-                                        closeResPopUp={closeResPopUp}
-                                />
+                                {isLoading ? "Content is loading" : (
+                                        <Cards
+                                                closeResPopUp={closeResPopUp}
+                                                posts={posts}
+                                        />
+                                )}
                         </div>
                 </div>
         )
 }
 
-const Cards = ({ closeResPopUp }) => {
+const Cards = ({ closeResPopUp, posts }) => {
         return (
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 rounded-xl bg-mainColor-300 max-w sm:max-w-96 max-h-[60vh] ml-auto  overflow-y-auto'>
-                        {allRes.slice(0, 6).map(item => (
+                        {posts.slice(0, 6).map(item => (
                                 <Link 
                                         key={item.id}
                                         href={`/resources/${item.slug.href}`} 
@@ -46,7 +50,10 @@ const Cards = ({ closeResPopUp }) => {
                                         </span>
                                 </Link>
                         ))}
-                        <div className='col-span-1 sm:col-span-2 text-center flex justify-center'>
+                        <div 
+                                className='col-span-1 sm:col-span-2 text-center flex justify-center'
+                                onClick={closeResPopUp}
+                        >
                                 <TertiaryBtn
                                         href={'/resources'}
                                         label={'Goto resources library'}
