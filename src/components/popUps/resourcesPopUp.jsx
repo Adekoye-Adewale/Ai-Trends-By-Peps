@@ -15,7 +15,9 @@ export default function ResourcesPopUp({ closeResPopUp }) {
                                 <CloseIcon/>
                         </div>
                         <div className='max-w-[1440px] w-[96%] mx-auto mt-32'>
-                                {isLoading ? "Content is loading" : (
+                                {isLoading ? (
+                                        <Skeleton/>
+                                ) : (
                                         <Cards
                                                 closeResPopUp={closeResPopUp}
                                                 posts={posts}
@@ -60,5 +62,27 @@ const Cards = ({ closeResPopUp, posts }) => {
                                 />
                         </div>
                 </div>
+        )
+}
+
+const Skeleton = () => {
+        return (
+                <div class="border border-blue-300 shadow rounded-xl p-2 max-w-96 w-full ml-auto bg-mainColor-300">
+                        <div class="animate-pulse grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <SkeletonCard/>
+                                <SkeletonCard/>
+                                <SkeletonCard/>
+                                <SkeletonCard/>
+                                <SkeletonCard/>
+                                <SkeletonCard/>                                
+                                <div className='col-span-1 sm:col-span-2 h-4 w-44 mx-auto bg-mainColor-700 rounded-lg'></div>
+                        </div>
+                </div>
+        )
+}
+
+const SkeletonCard = () => {
+        return (
+                <div class="h-32 w-[180px] bg-LightColor-300 border-solid border-2 border-mainColor-700 rounded-lg animate-pulse"></div>
         )
 }
