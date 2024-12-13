@@ -1,5 +1,5 @@
 import { CategoryPageComponent } from "@/components/resources"
-import { allRes } from "@/contentCopy/resouces";
+import { fetchPosts } from "../util/getPosts";
 
 const resImg = {
         src: `/images/Sunny.png`,
@@ -12,13 +12,26 @@ const resImg = {
 export default async function CategoryPage({ params }) {
         const categorySlug = (await params).category
 
-        const filteredContent = allRes.filter(
-                item => item.category.slug === `/${categorySlug}`
+        const { allPosts } = await fetchPosts();
+
+        const filteredContent = allPosts.filter(
+                item => item.category === categorySlug
         );
 
-        const categoryName = filteredContent.length > 0
-                ? filteredContent[0].category.name
-                : "Category Not Found";
+        let categoryName;
+        switch (categorySlug) {
+                case "online-courses":
+                        categoryName = "Online Courses";
+                        break;
+                case "ebooks-guides":
+                        categoryName = "E-Books and Guides";
+                        break;
+                case "templates-toolkits":
+                        categoryName = "Templates and Toolkits";
+                        break;
+                default:
+                        categoryName = "Category Not Found";
+        }
 
 
         return (
