@@ -1,6 +1,5 @@
 import React from 'react'
 import { client } from "@/sanity/client";
-import { PortableText } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import { ResPage } from '@/components/resources'
 import { ArticleNotFound } from '@/components/errorPage';
@@ -44,8 +43,6 @@ export default async function ResourcePage({ params }) {
                 commentsEnable: res?.commentsEnable,
                 relatedPosts: res?.relatedPosts,
         }
-
-        console.log('===================================', article)
 
         return (
                 <main>
