@@ -31,11 +31,11 @@ export default function ToolsSlide() {
                                 },
                                 800: {
                                         slidesPerView: 6,
-                                        spaceBetween: 20,
+                                        spaceBetween: 30,
                                 },
                                 1200: {
                                         slidesPerView: 8,
-                                        spaceBetween: 20,
+                                        spaceBetween: 40,
                                 },
                         }}
                         className='swiper-transition'
@@ -46,7 +46,7 @@ export default function ToolsSlide() {
                                 >
                                         <Image 
                                                 {...item} 
-                                                className='w-full h-full max-w-20 sm:max-w-32'
+                                                className='w-full h-full max-w-20 sm:max-w-28'
                                         />
                                 </SwiperSlide>
                         ))}
