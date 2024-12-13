@@ -1,9 +1,16 @@
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/client";
 
+const POSTS_QUERY = `*[ 
+  _type == "post"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...12]{_id, title, slug, category, publishedAt, image, body, featured, category, commentsEnable, relatedPosts}`;
+
 const { projectId, dataset } = client.config();
 
-const urlForImg = (source) =>
+const options = { next: { revalidate: 60 } };
+
+export const urlForImg = (source) =>
         projectId && dataset
                 ? imageUrlBuilder({ projectId, dataset }).image(source)
                 : null;
@@ -46,4 +53,15 @@ export function processPostsWithImageUrls(posts) {
                         relatedPosts,
                 };
         });
+}
+
+export const fetchPosts = async () => {
+        try {
+                const fetchedPosts = await client.fetch(POSTS_QUERY, {}, options);
+                const allPosts = processPostsWithImageUrls(fetchedPosts);
+                return { allPosts };
+        } catch (error) {
+                console.error('Error fetching posts:', error);
+                throw new Error('Failed to fetch posts');
+        }
 }
