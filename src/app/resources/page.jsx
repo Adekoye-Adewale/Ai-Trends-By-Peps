@@ -1,15 +1,7 @@
 import React from 'react'
-import { Banner, TopBanner } from '@/components/resources'
+import { fetchPosts } from '../util/getPosts';
+import { TopBanner } from '@/components/resources'
 import ListSection from '@/components/resources/listSection'
-import { processPostsWithImageUrls } from '../util/getPosts';
-import { client } from "@/sanity/client";
-
-const POSTS_QUERY = `*[
-  _type == "post"
-  && defined(slug.current)
-]|order(publishedAt desc)[0...12]{_id, title, slug, category, publishedAt, image, body, featured, category, commentsEnable, relatedPosts}`;
-
-const options = { next: { revalidate: 30 } };
 
 const resImg = {
         src: `/images/Sunny.png`,
@@ -20,9 +12,7 @@ const resImg = {
 }
 
 export default async function ResourcesPage() {
-        const posts = await client.fetch(POSTS_QUERY, {}, options);
-
-        const allPosts = processPostsWithImageUrls(posts)
+        const { allPosts } = await fetchPosts();
 
         const fetchEbooks = allPosts.filter(item => item?.category === 'ebooks-guides');
         const fetchTemplates = allPosts.filter(item => item?.category === 'templates-toolkits');
@@ -38,13 +28,13 @@ export default async function ResourcesPage() {
                         <ListSection
                                 content={fetchEbooks}
                                 secTitle={'E-Books and Guides'}
-                                link={'/ebooks-and-guides'}
+                                link={'/ebooks-guides'}
                         />
                         <div className='bg-DarkColor-100'>
                                 <ListSection
                                         content={fetchTemplates}
                                         secTitle={'Templates and Toolkits'}
-                                        link={'/templates-and-toolkits'}
+                                        link={'/templates-toolkits'}
                                 />
                         </div>
                         <ListSection
