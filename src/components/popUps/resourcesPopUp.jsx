@@ -29,6 +29,18 @@ export default function ResourcesPopUp({ closeResPopUp }) {
 }
 
 const Cards = ({ closeResPopUp, posts }) => {
+        const getCategoryName = (category) => {
+                switch (category) {
+                        case 'online-courses':
+                                return 'Online Courses';
+                        case 'templates-toolkits':
+                                return 'Templates and Toolkits';
+                        case 'ebooks-guides':
+                                return 'E-Books and Guides';
+                        default:
+                                return category;
+                }
+        };
         return (
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 rounded-xl bg-mainColor-300 max-w sm:max-w-96 max-h-[60vh] ml-auto  overflow-y-auto'>
                         {posts.slice(0, 6).map(item => (
@@ -43,9 +55,9 @@ const Cards = ({ closeResPopUp, posts }) => {
                                                 className='flex justify-between text-xs'
                                         >
                                                 <span className='text-xs'>
-                                                        {item.category.name}
+                                                        {getCategoryName(item.category)}
                                                 </span>
-                                                svg
+                                                <LinkOutIcon/>
                                         </div>
                                         <span className='block text-sm font-bold text-wrap mt-auto max-w-52 sm:max-w-40'>
                                                 {item.title}
@@ -63,6 +75,28 @@ const Cards = ({ closeResPopUp, posts }) => {
                         </div>
                 </div>
         )
+}
+
+const LinkOutIcon = () => {
+        return (
+                <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        width={24} 
+                        height={24} 
+                        viewBox="0 0 24 24" 
+                        className='w-3 h-3'
+                >
+                        <path 
+                                fill="none" 
+                                stroke="currentColor" 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                strokeWidth={2} 
+                                d="M13.5 10.5L21 3m-5 0h5v5m0 6v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"
+                        >                        
+                        </path>
+                </svg>
+        );
 }
 
 const Skeleton = () => {
@@ -83,6 +117,16 @@ const Skeleton = () => {
 
 const SkeletonCard = () => {
         return (
-                <div class="h-32 w-[180px] bg-LightColor-300 border-solid border-2 border-mainColor-700 rounded-lg animate-pulse"></div>
+                <div class="flex gap-2 flex-col justify-between h-32 w-full sm:w-[180px] bg-LightColor-300 border-solid border-2 p-4 border-mainColor-700 rounded-lg animate-pulse">
+                        <div className='flex justify-between items-center'>
+                                <div className='max-w-52 w-[80%] h-3 bg-DarkColor-400 rounded-md'></div>
+                                <div className='w-3 h-3 bg-DarkColor-400 rounded-md'></div>
+                        </div>
+                        <div>
+                                <div className='max-w-52 w-[50%] sm:w-[80%] h-3 bg-DarkColor-400 rounded-md'></div>
+                                <div className='max-w-52 w-[100%] h-3 bg-DarkColor-400 rounded-md my-2'></div>
+                                <div className='hidden sm:block max-w-52 w-[70%] h-3 bg-DarkColor-400 rounded-md'></div>
+                        </div>
+                </div>
         )
 }
