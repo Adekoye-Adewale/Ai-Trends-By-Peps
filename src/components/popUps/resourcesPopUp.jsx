@@ -101,8 +101,8 @@ const LinkOutIcon = () => {
 
 const Skeleton = () => {
         return (
-                <div class="border border-blue-300 shadow rounded-xl p-2 max-w-96 w-full ml-auto bg-mainColor-300">
-                        <div class="animate-pulse grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div className="border border-blue-300 shadow rounded-xl p-2 max-w-96 w-full ml-auto bg-mainColor-300">
+                        <div className="animate-pulse grid grid-cols-1 sm:grid-cols-2 gap-2">
                                 <SkeletonCard/>
                                 <SkeletonCard/>
                                 <SkeletonCard/>
@@ -117,7 +117,7 @@ const Skeleton = () => {
 
 const SkeletonCard = () => {
         return (
-                <div class="flex gap-2 flex-col justify-between h-32 w-full sm:w-[180px] bg-LightColor-300 border-solid border-2 p-4 border-mainColor-700 rounded-lg animate-pulse">
+                <div className="flex gap-2 flex-col justify-between h-32 w-full sm:w-[180px] bg-LightColor-300 border-solid border-2 p-4 border-mainColor-700 rounded-lg animate-pulse">
                         <div className='flex justify-between items-center'>
                                 <div className='max-w-52 w-[80%] h-3 bg-DarkColor-400 rounded-md'></div>
                                 <div className='w-3 h-3 bg-DarkColor-400 rounded-md'></div>
