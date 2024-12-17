@@ -1,17 +1,44 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useForm, Controller } from 'react-hook-form';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
 export default function ContactForm({ handleClickClose }) {
 
-        const [ value, setValue ] = useState()
+        const [ status, setStatus ] = useState("idle"); // 'idle', 'loading', 'success', or 'error'
         const { register, handleSubmit, reset, control, formState: { errors } } = useForm();
 
         const onSubmit = async (data) => {
+                setStatus("loading"); // Set to 'loading' when form submission starts
                 console.log(data);
-                reset();
-                handleClickClose();
+                const formData = new FormData();
+                formData.append('fullname', data.fullname);
+                formData.append('email', data.email);
+                formData.append('phoneNumber', data.phoneNumber);
+                formData.append('resourceOfInterest', data.resourceOfInterest);
+                formData.append('state', data.state);
+                formData.append('country', data.country);
+                formData.append('fieldOfWork', data.fieldOfWork);
+
+                try {
+                        const response = await axios.post(`/api/email`, formData);
+                        if (response.data.success) {
+                                setStatus("success"); // Set to 'success' if submission succeeds
+                                console.log(response.data.msg);
+                        } else {
+                                setStatus("error"); // Set to 'error' if API indicates failure
+                        }
+                } catch (error) {
+                        setStatus("error", error); // Set to 'error' if an exception occurs
+                        console.error('An error occurred:', error);
+                } finally {
+                        reset(); // Reset form fields
+                        setTimeout(() => {
+                                setStatus("idle"); // Reset status after 3 seconds
+                                handleClickClose();
+                        }, 3000);
+                }
         }
 
         return (
@@ -19,6 +46,17 @@ export default function ContactForm({ handleClickClose }) {
                         onSubmit={handleSubmit(onSubmit)}
                         className='flex flex-col gap-5'
                 >
+                        {/* Status Messages */}
+                        {status === "loading" && (
+                                <p className="text-mainColor-700 font-medium">Loading...</p>
+                        )}
+                        {status === "success" && (
+                                <p className="text-mainColor-900 font-medium">Form submitted successfully!</p>
+                        )}
+                        {status === "error" && (
+                                <p className="text-red-500 font-medium">An error occurred. Please try again.</p>
+                        )}
+
                         {/* Full Name Field */}
                         <span className='flex flex-col gap-2'>
                                 <label
@@ -200,7 +238,8 @@ export default function ContactForm({ handleClickClose }) {
 
                         <input
                                 type="submit"
-                                value="Submit"
+                                value={status === "loading" ? "Submitting..." : "Submit"}
+                                disabled={status === "loading"}
                                 className='py-2 px-6 rounded-lg border-solid border border-mainColor-500 outline-1 outline outline-mainColor-500 text-sm text-DarkColor-800 font-semibold bg-mainColor-500 cursor-pointer transition-all duration-300 hover:text-mainColor-400 hover:bg-DarkColor-700'
                         />
                 </form>
