@@ -11,7 +11,7 @@ export default function ContactForm({ handleClickClose }) {
 
         const onSubmit = async (data) => {
                 setStatus("loading"); // Set to 'loading' when form submission starts
-                console.log(data);
+
                 const formData = new FormData();
                 formData.append('fullname', data.fullname);
                 formData.append('email', data.email);
@@ -25,7 +25,6 @@ export default function ContactForm({ handleClickClose }) {
                         const response = await axios.post(`/api/email`, formData);
                         if (response.data.success) {
                                 setStatus("success"); // Set to 'success' if submission succeeds
-                                console.log(response.data.msg);
                         } else {
                                 setStatus("error"); // Set to 'error' if API indicates failure
                         }
@@ -46,17 +45,6 @@ export default function ContactForm({ handleClickClose }) {
                         onSubmit={handleSubmit(onSubmit)}
                         className='flex flex-col gap-5'
                 >
-                        {/* Status Messages */}
-                        {status === "loading" && (
-                                <p className="text-mainColor-700 font-medium">Loading...</p>
-                        )}
-                        {status === "success" && (
-                                <p className="text-mainColor-900 font-medium">Form submitted successfully!</p>
-                        )}
-                        {status === "error" && (
-                                <p className="text-red-500 font-medium">An error occurred. Please try again.</p>
-                        )}
-
                         {/* Full Name Field */}
                         <span className='flex flex-col gap-2'>
                                 <label
@@ -235,6 +223,23 @@ export default function ContactForm({ handleClickClose }) {
                                         </span>
                                 )}
                         </div>
+
+                        {/* Status Messages */}
+                        {status === "loading" && (
+                                <div className='bg-mainColor-800 py-2 px-5 rounded-lg'>
+                                        <p className="text-DarkColor-300 font-medium">Loading...</p>
+                                </div>
+                        )}
+                        {status === "success" && (
+                                <div className='bg-mainColor-800 py-2 px-5 rounded-lg'>
+                                        <p className="text-mainColor-300 font-medium">Form submitted successfully!</p>
+                                </div>
+                        )}
+                        {status === "error" && (
+                                <div className='bg-red-900 py-2 px-5 rounded-lg'>
+                                        <p className="text-red-300 font-medium">An error occurred. Please try again.</p>
+                                </div>
+                        )}
 
                         <input
                                 type="submit"
