@@ -24,3 +24,8 @@ export async function POST(request) {
                 msg: 'Form submited successfully'
         })
 }
+
+export async function GET(request) {
+        const contactFormData = await EmailModel.find({});
+        return NextResponse.json({ contactFormData });
+}
