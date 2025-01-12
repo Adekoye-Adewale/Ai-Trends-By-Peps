@@ -1,11 +1,23 @@
 import { NextResponse } from "next/server"
 import { ConnectDB } from "../../../../lib/config/db"
+import cors from "../../../../lib/cors"
 import EmailModel from "../../../../lib/models/contactFormModel"
 
 const LoadDB = async () => {
         await ConnectDB()
 }
 LoadDB()
+
+export default async function handler(req, res) {
+        cors(req, res, () => {
+                if (req.method === 'GET') {
+                        res.json({ contactFormData: [] });
+                } else {
+                        res.setHeader('Allow', ['GET']);
+                        res.status(405).end(`Method ${req.method} Not Allowed`);
+                }
+        });
+}
 
 export async function POST(request) {
         const formData = await request.formData()
