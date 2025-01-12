@@ -4,7 +4,7 @@ import axios from 'axios';
 import { processLeadsData } from '@/app/util/getLeads';
 
 export default async function LeadsPage() {
-        const { data } = await axios.get(`/api/email`);
+        const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/email`);
         const leadsData = processLeadsData(data.contactFormData)
         return (
                 <div>
