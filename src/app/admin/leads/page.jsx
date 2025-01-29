@@ -8,9 +8,9 @@ export default async function LeadsPage() {
         const leadsData = processLeadsData(data.contactFormData)
         return (
                 <div>
-                        <TableComponent
+                        {/* <TableComponent
                                 leadsData={leadsData}
-                        />
+                        /> */}
                 </div>
         )
 }
