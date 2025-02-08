@@ -1,13 +1,14 @@
 import React from 'react'
 import { ResourceBody, TopBanner } from '.'
+import { PostBanner } from './banner'
 
-export default function ResPage({ bgImg, pageTitle, desc, content }) {
+export default function ResPage({ bgImg, pageTitle, category, content }) {
         return (
                 <>
-                        <TopBanner
+                        <PostBanner
                                 img={bgImg}
                                 title={pageTitle}
-                                label={desc}
+                                category={category}
                         />
                         <ResourceBody
                                 content={content}
