@@ -27,11 +27,18 @@ export default async function ResourcePage({ params }) {
                 ? urlFor(res.image)?.width(550).height(310).url()
                 : null;
 
+        const formatCategory = (category) => {
+                return category
+                        .split('-') 
+                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join(' '); 
+        };
+
         const article = {
                 title: res?.title,
                 publishedAt: res?.publishedAt,
                 featured: res?.featured,
-                category: res?.category,
+                category: res?.category ? formatCategory(res.category) : '',
                 img: {
                         src: postImageUrl,
                         alt: res?.title,
@@ -49,7 +56,7 @@ export default async function ResourcePage({ params }) {
                         <ResPage
                                 bgImg={article.img}
                                 pageTitle={article.title}
-                                desc={article.title}
+                                category={article.category}
                                 content={article.body}
                         />
                 </main>
