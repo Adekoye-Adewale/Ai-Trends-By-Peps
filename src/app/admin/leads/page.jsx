@@ -1,7 +1,8 @@
-// import React from 'react'
-// import TableComponent from '@/components/admin/table'
+import React from 'react'
+import TableComponent from '@/components/admin/table'
+import { leadData } from '@/contentCopy/sampleData'
 // import axios from 'axios';
-// import { processLeadsData } from '@/app/util/getLeads';
+import { processLeadsData } from '@/app/util/getLeads';
 
 // export default async function LeadsPage() {
 //         const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/email`);
@@ -15,11 +16,18 @@
 //         )
 // }
 
-
-import React from 'react'
-
-export default function LeadsPage() {
+export default async function LeadsPage() {
+        const leadsData = processLeadsData(leadData)
         return (
-                <div>Lead page</div>
+                <div>
+                        <div>
+                                Lead page
+                        </div>
+                        <div>
+                                <TableComponent
+                                        leadsData={leadsData}
+                                />
+                      </div>
+                </div>
         )
 }
