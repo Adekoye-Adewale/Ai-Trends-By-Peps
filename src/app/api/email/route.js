@@ -8,7 +8,7 @@ const LoadDB = async () => {
 }
 LoadDB()
 
-export default async function handler(req, res) {
+export async function handler(req, res) {
         cors(req, res, () => {
                 if (req.method === 'GET') {
                         res.json({ contactFormData: [] });
