@@ -11,3 +11,11 @@ export async function fetchLeadsData() {
                 return [];
         }
 }
+
+export async function leadsDataLength() {
+        const data = await fetchLeadsData();
+        const dataLength = data.contactFormData.length
+        return (
+                dataLength
+        )
+}
