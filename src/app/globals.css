@@ -19,6 +19,15 @@ html {
 body:has(.admin) :is(header, footer, body>div){
         display: none;
 }
+.subscribe-page input{
+        color: #001321;
+}
+.subscribe-page input::placeholder{
+        color: #7F8D97;
+}
+.subscribe-page form span, .subscribe-page form p{
+        text-align: left;
+}
 @layer base {
   :root {
                 --background: 0 0% 100%;
