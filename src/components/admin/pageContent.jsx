@@ -9,6 +9,7 @@ export default function PageContent() {
         const routeTitles = {
                 '/admin': 'Dashboard',
                 '/admin/leads': 'Leads',
+                '/admin/newsletter': 'Newsletter',
                 '/admin/settings': 'Settings',
         };
         const title = routeTitles[pathname] || 'Admin Dashboard';
