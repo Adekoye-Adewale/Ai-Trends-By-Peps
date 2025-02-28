@@ -1,9 +1,15 @@
 import React from 'react'
+import { fetchSubscribers } from '@/app/util/fetchSubscribersData'
+import NewsletterData from '@/components/admin/newsletterData';
 
-export default function NewsletterPage() {
+export default async function NewsletterPage() {
+        const subscribers = await fetchSubscribers();
+
         return (
                 <div>
-                        Newsletter
+                        <NewsletterData 
+                                subscribers={subscribers}
+                        />
                 </div>
         )
 }
