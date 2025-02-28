@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import TableComponent from '@/components/admin/table'
 import { fetchLeadsData } from '@/app/util/fetchLeadsData'
 import { processLeadsData } from '@/app/util/getLeads'
+import RefreshIcon from '@/icons/refresh';
 
 export default function LeadsPage() {
         const [leadsData, setLeadsData] = useState(null);
@@ -35,32 +36,15 @@ export default function LeadsPage() {
                 fetchData();
         }, []);
 
-        // if (loading) {
-        //         return <div>Loading...</div>; 
-        // }
-
-        // if (error) {
-        //         return <div>{error}</div>; 
-        // }
-
-        // return (
-        //         <div>
-        //                 <TableComponent
-        //                         leadsData={leadsData}
-        //                 />
-        //         </div>
-        // )
-
         return (
                 <div className="p-4">
                         <div className="flex justify-between items-center mb-4">
-                                <h2 className="text-xl font-bold">Leads Data</h2>
                                 <button
                                         onClick={fetchData}
                                         className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
                                         disabled={loading}
                                 >
-                                        {loading ? 'Refreshing...' : 'Refresh Data'}
+                                        {loading ? 'Refreshing...' : <RefreshIcon className='[&>path]:stroke-mainColor-800 [&>path]:hover:stroke-DarkColor-800 duration-300 transition-all'/>}
                                 </button>
                         </div>
 
