@@ -3,10 +3,13 @@ import { ConnectDB } from "../../../../lib/config/db"
 import cors from "../../../../lib/cors"
 import EmailModel from "../../../../lib/models/contactFormModel"
 
-const LoadDB = async () => {
-        await ConnectDB()
+async function LoadDB() {
+        await ConnectDB();
 }
-LoadDB()
+
+export async function OPTIONS(req) {
+        return cors(req, NextResponse.json({}, { status: 200 }));
+}
 
 export async function handler(req, res) {
         cors(req, res, () => {
@@ -20,24 +23,35 @@ export async function handler(req, res) {
 }
 
 export async function POST(request) {
-        const formData = await request.formData()
-        const contactFormData = {
-                fullname: `${formData.get('fullname')}`,
-                email: `${formData.get('email')}`,
-                phoneNumber: `${formData.get('phoneNumber')}`,
-                resourceOfInterest: `${formData.get('resourceOfInterest')}`,
-                state: `${formData.get('state')}`,
-                country: `${formData.get('country')}`,
-                fieldOfWork: `${formData.get('fieldOfWork')}`,
+        await LoadDB();
+
+        try {
+                const formData = await request.formData()
+                const contactFormData = {
+                        fullname: `${formData.get('fullname')}`,
+                        email: `${formData.get('email')}`,
+                        phoneNumber: `${formData.get('phoneNumber')}`,
+                        resourceOfInterest: `${formData.get('resourceOfInterest')}`,
+                        state: `${formData.get('state')}`,
+                        country: `${formData.get('country')}`,
+                        fieldOfWork: `${formData.get('fieldOfWork')}`,
+                }
+                await EmailModel.create(contactFormData)
+                return NextResponse.json({
+                        success: true,
+                        msg: 'Form submited successfully'
+                })
+        } catch (error) {
+                return NextResponse.json({
+                        success: false,
+                        msg: "Error submitting form",
+                        error: error.message,
+                }, { status: 500 });
         }
-        await EmailModel.create(contactFormData)
-        return NextResponse.json({
-                success: true,
-                msg: 'Form submited successfully'
-        })
 }
 
-export async function GET(request) {
+export async function GET() {
+        await LoadDB();
         const contactFormData = await EmailModel.find({});
         return NextResponse.json({ contactFormData });
 }
