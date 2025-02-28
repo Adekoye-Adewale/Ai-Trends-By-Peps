@@ -28,6 +28,18 @@ body:has(.admin) :is(header, footer, body>div){
 .subscribe-page form span, .subscribe-page form p{
         text-align: left;
 }
+.admin-menu-active path{
+        fill: #ABE9FF;
+}
+.admin-menu-active span{
+        color: #ABE9FF;
+}
+.admin-menu-active:hover path{
+        fill: #001321;
+}
+.admin-menu-active:hover span{
+        color: #001321;
+}
 @layer base {
   :root {
                 --background: 0 0% 100%;
