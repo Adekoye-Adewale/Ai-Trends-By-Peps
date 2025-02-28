@@ -7,7 +7,7 @@ export default function AdminLayout({ children }) {
                         <Sidebar/>
                         <div className="w-full">
                                 <PageContent/>
-                                <div className="py-10 px-5 overflow-x-hidden overflow-y-auto">
+                                <div className="py-5 px-5 overflow-x-hidden overflow-y-auto">
                                         {children}
                                 </div>
                         </div>
