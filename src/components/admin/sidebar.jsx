@@ -51,7 +51,7 @@ export default function Sidebar() {
                         <div className='flex gap-2 items-center justify-between py-5 px-3 cursor-default bg-mainColor-600 hover:bg-mainColor-700 transition-all duration-300 border-b-2 border-b-DarkColor-800'>
                                 <Logo/>
                                 {open ? <span
-                                        className='font-bold text-lg sm:text-xl'
+                                        className='font-bold text-lg sm:text-xl text-nowrap'
                                         >
                                                 Admin Dashboard
                                         </span> : ''
@@ -101,7 +101,7 @@ const MenuList = ({ open, href, label, icon }) => {
                         <span>
                                 {icon}
                         </span>
-                        {open && <span>{label}</span>}
+                        {open && <span className='text-nowrap'>{label}</span>}
                 </Link>
         )
 }
