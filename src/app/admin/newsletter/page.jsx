@@ -6,10 +6,8 @@ export default async function NewsletterPage() {
         const subscribers = await fetchSubscribers();
 
         return (
-                <div>
-                        <NewsletterData 
-                                subscribers={subscribers}
-                        />
-                </div>
+                <NewsletterData 
+                        subscribers={subscribers}
+                />
         )
 }
