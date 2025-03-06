@@ -1,3 +1,4 @@
+'use client'
 import { useState, useEffect } from 'react';
 import { fetchPosts } from '../util/getPosts';
 
@@ -17,7 +18,6 @@ export const usePosts = () => {
                                 setIsLoading(false);
                         }
                 };
-
                 loadPosts();
         }, []);
 
