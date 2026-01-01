@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@reference utilities;
+
 *, 
 *::after, 
 *::before{
@@ -96,16 +98,7 @@ body:has(.admin) :is(header, footer, body>div){
         }
 }
 @layer base {
-  * {
-    @apply border-border;
-        }
-  body {
-    @apply bg-background text-foreground;
-        }
-}
-
-@layer base {
-  * {
+  html {
     @apply border-border outline-ring/50;
         }
   body {
